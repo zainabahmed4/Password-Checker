@@ -1,14 +1,9 @@
 /**------------------------------------------
-    Programming Assignment 4: Password Check
-    Course: CS 141, Spring 2024
-    Student Author: Zainab Ahmed
-    Lab Section: 12 PM	
+    Programming Project: Password Check
+    Author: Zainab Ahmed
     Date: 3/29/24
 -------------------------------------------*/
 
-//In order to use AI feedback I consent to participate in research study (via surveys) regarding the usefullness of the AI feedback in my progress
-//change the value to true to request help from AI 
-const bool request_ai_feedback = true; 
 
 #include <iostream>
 #include <fstream>
@@ -20,7 +15,6 @@ const bool request_ai_feedback = true;
 
 using namespace std;
 
-//Do not change the message variables.
 const string critrion_msg_length = "The selected password must be at least eight characters long.";
 const string critrion_msg_upper = "The selected password must have at least one uppercase letter.";
 const string critrion_msg_lower = "The selected password must have at least one lowercase letter.";
@@ -37,9 +31,7 @@ vector<string> leaked_password_dic;
 vector<string> english_dic;
 
 //This functions reads in string in the file specified by the filename and fill word_dic dictionary. It going to be used to read both leaked passwords and word dictionary.
-//Change any call type of parameters at your discretion (call by value or call by refrence); Do not change the name of the function.
 int readWordList(string filename, vector<string>& word_dic) {
-	//complete me
     //Open and read file:
     fstream word_file;
     word_file.open(filename, ios::in);
@@ -61,7 +53,6 @@ int readWordList(string filename, vector<string>& word_dic) {
 
 
 int compare(string word, string query) { 
-	//complete me
     string lowercase_word;
     
     for (int i = 0; i < word.length(); i++) {
@@ -84,7 +75,6 @@ int compare(string word, string query) {
 
 //for each rule if the passwords satisfy the rule, set the corresponding entry in the checks array to true
 void checkPasswordChars(bool checks[CHECKS_NUM], const string& password) { //Was originally "string password"
-	//complete me
     //Initialize checks to false:
     for (int i = 0; i< CHECKS_NUM; i++) {
         checks[i] = false;
@@ -143,9 +133,7 @@ void checkPasswordChars(bool checks[CHECKS_NUM], const string& password) { //Was
 
 
 //This function checks if the passowrd is among the leaked password provided by password dic
-//Change any call type of parameters at your discretion (call by value or call by refrence); Do not change the name of the function.
 bool isInLeakedDic(vector<string> password_dic, string password){
-	//complete me
     //Convert password to lower case:
     string lowercase_password;
     for (int i = 0; i < password.length(); i++) {
@@ -178,10 +166,8 @@ bool isInLeakedDic(vector<string> password_dic, string password){
 
 
 //This function checks if the password contains a dictionary word provided by english_dic
-//Change any call type of parameters at your discretion (call by value or call by refrence); Do not change the name of the function.
 bool isInEnglishDic(vector<string> english_dic, string password) {
-	//complete me
-     //Convert password to lowercase
+    //Convert password to lowercase
     string lowercase_password = password;
     transform(lowercase_password.begin(), lowercase_password.end(), lowercase_password.begin(), ::tolower);
 
@@ -202,7 +188,6 @@ bool isInEnglishDic(vector<string> english_dic, string password) {
 }
 
 
-/* do not change the main file */
 int main(int argc, char* argv[]) {
 
 	if (argc < 3){
