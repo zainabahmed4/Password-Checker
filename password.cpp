@@ -1,5 +1,5 @@
 /**------------------------------------------
-    Programming Project: Password Check
+    Programming Project: Password Checker
     Author: Zainab Ahmed
     Date: 3/29/24
 -------------------------------------------*/
